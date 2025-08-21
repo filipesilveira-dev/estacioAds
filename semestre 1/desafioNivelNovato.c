@@ -11,7 +11,7 @@ int main(){
 	char estado1;
 	char codigoCarta1[3];
 	char nomeDaCidade1[20];
-	//int populacao1 = ;
+	int populacao1;
 	//float area1 = ;
 	//float pib1 = ;
 	//int pontosTuristicos1 = ;
@@ -24,6 +24,9 @@ int main(){
 	
 	printf("Digite o nome da cidade: ");
 	scanf("%s", &nomeDaCidade1);
-	printf("%s", nomeDaCidade1);
+	
+	printf("Digite a população da cidade: ");
+	scanf("%d", &populacao1);
+	printf("%d", populacao1);
 }
 
