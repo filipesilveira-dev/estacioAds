@@ -47,4 +47,6 @@ Especificadores de formato
 %c: único caractere
 %s: cadeia de caracteres "string"
 
+obs: letra = letra + ('A' - 'a') transforma a letra em maiúscula.
+
 */
