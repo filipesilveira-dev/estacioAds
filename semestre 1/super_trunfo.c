@@ -43,7 +43,10 @@ int main(){
 	scanf("%d", &pontosTuristicos1);
 	
 	float densidadePop1 = populacao1 / area1;
+	float inversoDensidadePop1 = 1 / densidadePop1;
 	float pibPerCapita1 = pib1 / populacao1;
+	//cálculo do super poder da carta 1
+	float superPoder1 = populacao1 + area1 + pib1 + pontosTuristicos1 + pibPerCapita1 + inversoDensidadePop1;
 	
 	//limpa a tela do usuário, diminuindo a poluição visual e visando uma melhor experiência
 	system("cls");
@@ -53,12 +56,12 @@ int main(){
 	printf("Carta 1:\nEstado: %c\n", estado1);
 	printf("Código: %c%s\n", estado1, codigoCarta1);
 	printf("Nome da Cidade: %s\n", nomeDaCidade1);
-	printf("População: %d\n", populacao1);
+	printf("População: %d habitantes\n", populacao1);
 	printf("Área: %.2f km²\n", area1);
 	printf("PIB: %.2f bilhões de reais\n", pib1);
 	printf("Número de Pontos Turísticos: %d\n", pontosTuristicos1);
-	printf("Densidade Populacional: %.2f\n", densidadePop1);
-	printf("PIB Per Capita: %.2f\n\n", pibPerCapita1);
+	printf("Densidade Populacional: %.2f hab/km²\n", densidadePop1);
+	printf("PIB Per Capita: %.2f reais\n\n", pibPerCapita1);
 	
 	//comando para o sistema aguardar uma nova interação do usuário para prosseguir. Permite tempo de conferência antes de limpar a tela novamente
 	system("pause");
@@ -97,7 +100,10 @@ int main(){
 	scanf("%d", &pontosTuristicos2);
 	
 	float densidadePop2 = populacao2 / area2;
+	float inversoDensidadePop2 = 1 / densidadePop2;
 	float pibPerCapita2 = pib2 / populacao2;
+	//cálculo do super poder da carta 2
+	float superPoder2 = populacao2 + area2 + pib2 + pontosTuristicos2 + pibPerCapita2 + inversoDensidadePop2;
 	
 	//limpa a tela
 	system("cls");
@@ -112,7 +118,7 @@ int main(){
 	printf("PIB: %.2f bilhões de reais\n", pib2);
 	printf("Número de Pontos Turísticos: %d\n", pontosTuristicos2);
 	printf("Densidade Populacional: %.2f hab/km²\n", densidadePop2);
-	printf("PIB Per Capita: %.2f\n\n reais", pibPerCapita2);
+	printf("PIB Per Capita: %.2f reais\n\n", pibPerCapita2);
 	
 	system("pause");
 	system("cls");
@@ -128,16 +134,40 @@ int main(){
 	printf("PIB: %.2f bilhões de reais\n", pib1);
 	printf("Número de Pontos Turísticos: %d\n", pontosTuristicos1);
 	printf("Densidade Populacional: %.2f hab/km²\n", densidadePop1);
-	printf("PIB Per Capita: %.2f\n\n reais", pibPerCapita1);
+	printf("PIB Per Capita: %.2f reais\n\n", pibPerCapita1);
 	
 	printf("Carta 2:\nEstado: %c\n", estado2);
 	printf("Código: %c%s\n", estado1, codigoCarta2);
 	printf("Nome da Cidade: %s\n", nomeDaCidade2);
-	printf("População: %d\n", populacao2);
+	printf("População: %d habitantes\n", populacao2);
 	printf("Área: %.2f km²\n", area2);
 	printf("PIB: %.2f bilhões de reais\n", pib2);
 	printf("Número de Pontos Turísticos: %d\n", pontosTuristicos2);
 	printf("Densidade Populacional: %.2f hab/km²\n", densidadePop2);
-	printf("PIB Per Capita: %.2f\n\n reais", pibPerCapita2);
+	printf("PIB Per Capita: %.2f reais\n\n", pibPerCapita2);
+	
+	//declaração das variáveis resultado que serão exibidas
+	int resultadoPopulacao, resultadoArea, resultadoPib, resultadoPontosTuristicos, resultadoDensidadePop, resultadoPibPerCapita, resultadoSuperPoder;
+	
+	//atribuição de valor às variáveis resultado (comparando cartas atributo por atributo)
+	resultadoPopulacao = populacao1 > populacao2;
+	resultadoArea = area1 > area2;
+	resultadoPib = pib1 > pib2;
+	resultadoPontosTuristicos = pontosTuristicos1 > pontosTuristicos2;
+	resultadoDensidadePop = densidadePop1 < densidadePop2;
+	resultadoPibPerCapita = pibPerCapita1 > pibPerCapita2;
+	resultadoSuperPoder = superPoder1 > superPoder2;
+	
+	system("pause");
+	system("cls");
+	
+	printf("***Comparação entre as cartas***\n\n");
+	printf("População: %d\n", resultadoPopulacao);
+	printf("Área: %d\n", resultadoArea);
+	printf("PIB: %d\n", resultadoPib);
+	printf("Pontos Turísticos: %d\n", resultadoPontosTuristicos);
+	printf("Densidade Populacional: %d\n", resultadoDensidadePop);
+	printf("PIB per Capita: %d\n", resultadoPibPerCapita);
+	printf("Super Poder: %d\n", resultadoSuperPoder);
 }
 
