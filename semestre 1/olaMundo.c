@@ -49,4 +49,18 @@ Especificadores de formato
 
 obs: letra = letra + ('A' - 'a') transforma a letra em maiúscula.
 
+Modificadores de tipos de dados
+
+Unsigned - intervalos de valores (considera apenas os valores positivos, dobrando a faixa positiva. A capacidade máxima permanece. Apenas o intervalo é 
+deslocado para o aspecto positivo)
+Ex:
+	int: -2,147,483,648 a 2,147,483,648
+	unsigned int: 0 a 4,294,967,295
+
+Long - aplicado a int e double (amplia a capacidade máxima de valores). Utiliza "l" antes do especificador
+Ex: 
+	printf()"Número grande (long int): %ld, numeroGrande)
+	
+Short - reduz a capacidade máxima de valores. Útil em casos com memória reduzida (máx: 32767)
+
 */
