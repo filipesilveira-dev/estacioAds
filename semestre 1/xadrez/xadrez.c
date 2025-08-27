@@ -36,4 +36,19 @@ int main(){
 		////a cada repetição do código, será impressa a mensagem
 		printf("Esquerda\n");
 	}
+	
+		//antes do laço de repetição é impressa a mensagem (para não repetir todas as vezes)
+	printf("\nO cavalo anda: \n");
+	
+	int l = 0;
+	
+	do{
+		for(int m = 0; m < 2; m++){
+			printf("baixo\n");
+		}
+		//a cada repetição do código, será impressa a mensagem
+		printf("Esquerda\n");
+		//incremento da variável contadore. A cada repetição, o valor de j aumenta 1
+		l++;
+	} while (l < 1);
 }
