@@ -9,6 +9,8 @@ void recursivo(int n){
 		printf("%d\n", n);
 		//uso com decremento
 		recursivo(n-1);
+		//obs: nesse caso da recursividade, a ordem dos fatores afetará o resultado final. Caso o "printf" venha depois da recursividade, virará uma contagem 
+		//progressiva. Por conta da pilha de informações e da dependência de execução.
 	}
 }
 
