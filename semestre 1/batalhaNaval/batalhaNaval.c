@@ -19,39 +19,94 @@ int main (){
 	};
 	//vetor que mostra a marcação superior das posições
 	char linhas[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
-	//vetor que mostra a marcação lateral das posições
-	int colunas[10] = {1,2,3,4,5,6,7,8,9,10};
+	
 	//criação dos vetores "navio" alterando valores da matriz para representar os navios na saída para o usuário
 	int navio1[3] = {
-	(tabuleiro[0][0] += 3, 3),
-	(tabuleiro[0][1] += 3, 3),
-	(tabuleiro[0][2] += 3, 3)
+	//nesse escrita, caso os valores não fossem "0", o valor de cada elemento do vetor navio1 seria 3 + o "valor na mesma posição no tabuleiro"
+	tabuleiro[0][0] += 3,
+	tabuleiro[0][1] += 3,
+	tabuleiro[0][2] += 3
 	};
 	int navio2[3] = {
+	//nessa forma de escrita, o valor de cada elemento de navio2 sempre seria "3" (mesmo se a representação de água no tabuleiro fosse um número
+	//diferente de "0". Com o operador ",", as duas expressões são analisadas, mas será proirizada a útlima (mantendo o valor "3"). Nesse caso,
+	//a falta dos parênteses geraria erro.
 	(tabuleiro[0][4] += 3, 3),
 	(tabuleiro[1][4] += 3, 3),
 	(tabuleiro[2][4] += 3, 3)
 	};
+	//navio na diagonal 1
+	int navio3[3] = {
+	(tabuleiro[9][0] += 3, 3),
+	(tabuleiro[8][1] += 3, 3),
+	(tabuleiro[7][2] += 3, 3)
+	};
+	//navio na diagonal 2
+	int navio4[3] = {
+	(tabuleiro[9][9] += 3, 3),
+	(tabuleiro[8][8] += 3, 3),
+	(tabuleiro[7][7] += 3, 3)
+	};
+	//criado para forçar sobreposições e observar a função criada para verificar agindo
+	int navioTeste[6] = {
+		(tabuleiro[9][0] += 3, 3),
+		(tabuleiro[8][1] += 3, 3),
+		(tabuleiro[7][2] += 3, 3),
+		(tabuleiro[9][9] += 3, 3),
+		(tabuleiro[8][8] += 3, 3),
+		(tabuleiro[7][7] += 3, 3)
+	};
 	
+	//variável de controle para única exibição de "Sobreposição detectada em: " inicialmente como "0" falso
+	int sobreposicaoDetectada = 0;
+	//função criada para verificar se há sobreposição de navios partindo da premissa de que haverá sobreposição em casos que o valor de determinada
+	//posição seja maior que 3, sugerindo que o valor "3" de um elemento de navio está sendo colocado na mesmo posição de um outro elemento de valor
+	//"3" de outro navio
+	void sobreposicaoNavio(){
+		//laço externo para controle de linhas
+		for (int i = 0; i < 10; i++){
+			//laço interno para controle de colunas
+			for (int j = 0; j < 10; j++){
+				//condicional caso o valor de determinada posição seja maior que "3", indicando msobreposição
+				if (tabuleiro[i][j] > 3){
+					//a condicional nega sobreposicaoDetectada (inicialmente "falso"), ou seja, transforma em "verdadeiro", indicando que o trecho
+					//de código dentro da condicional deve ser executado
+					if (!sobreposicaoDetectada){
+						printf("\nSobreposição detectada em: \n\n");
+						//ao final do código, o novo valor de sobreposicaoDetectada é "1" (verdadeiro), imperdindo que, em uma nova ocorrência
+						//de sobreposição, a condicional "!sobreposicaoDetectada" seja "verdadeira" e consequentemente executando a mensagem apenas
+						//na primeira ocorrência
+						sobreposicaoDetectada = 1;
+					}	
+					//mostra em qual ou quais posiçoes estão ocorrendo sobreposições
+					printf("tabuleiro[%d][%d]\n", i, j);	
+				} 
+			}
+		}
+	}
 	
 	printf("*** Tabuleiro Batalha Naval ***\n\n");
 	//mostra os itens do vetor linhas para fazer a marcação superior
 	for (int i = 0; i < 10; i++){
+		//consicional para inserir na posição "0" um espaço maior que nas outras posições (escolha estética)
 		if (i == 0){
-			printf("    ");
-			printf("%c ", linhas[i]);	
+			printf("    %c ", linhas[i]);	
 		} else {
+			//imprime cada elemento do vetor "linhas", funcionando como uma marcação literal superior no tabuleiro
 			printf("%c ", linhas[i]);
-		}
-		
+		}	
 	}
+	//salva uma linha para iniciar a impressão da matriz "tabuleiro"
 	printf("\n");
 	
 	//loop externo controla "i" (as linhas)
 	for(int i = 0; i < 10; i++){
+		//condicional para acrescentar um espaço antes do número por questões estéticas
 		if (i<9){
+			//imprime a marcação numeral lateral para o usuário até a posição 8
 			printf(" %d  ", (i + 1));
 		} else{
+			//imprime a marcação numeral lateral da posição 9 para o usuário (dois dígitos)
 			printf("%d  ", (i + 1));
 		}
 		
@@ -63,4 +118,6 @@ int main (){
 		//após mostrar todas as colunas, ou seja, até j < 10, então o loop externo segue seu código e salta uma linha (tornando mais visível ao usuário)
 		printf("\n");
 	}
+	//chama a função que verificará se há sobreposição e onde
+	sobreposicaoNavio();
 }
