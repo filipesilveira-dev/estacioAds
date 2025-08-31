@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <locale.h>	//biblioteca que permite configurar localização por meio de "setlocale()"
 
+#define LINHA 3
+#define COLUNA 5
+
 int main (){
 	setlocale(LC_ALL, "");	// as aspas vazias indicam que será utilizada a localização padrãso do sistema operacional
 	
@@ -56,6 +59,62 @@ int main (){
 		(tabuleiro[8][8] += 3, 3),
 		(tabuleiro[7][7] += 3, 3)
 	};
+	
+	int habilidadeCone[LINHA][COLUNA];
+	int habilidadeCruz[LINHA][COLUNA];
+	int habilidadeOctaedro[LINHA][COLUNA];
+	
+	//cria uma matriz 5x5, onde o primeiro elemento é "1" e, à medida em que o laço continua, aumenta uma unidade
+	//loop externo controla as linhas
+	printf("Habilidade cruz\n");
+	for(int i = 0; i < LINHA; i++){
+		//loop interno controla as colunas
+		for(int j = 0; j < COLUNA; j++){
+			//a cada posição o valor do elemento à "soma" mais "1"
+			habilidadeCruz[i][j] = 0;
+			if(j == 2){
+				habilidadeCruz[i][j] = 3;
+			}
+			if(i == 1){
+			habilidadeCruz[i][j] = 3;
+			}
+			//mostra cada valor de acordo com a posição
+			printf("%d ", habilidadeCruz[i][j]);
+		}
+		//salta uma linha após terminar a primeira linha e ir para a segunda
+		printf("\n");	
+	}
+	
+		printf("Habilidade cone\n");
+	for(int i = 0; i < LINHA; i++){
+		//loop interno controla as colunas
+		for(int j = 0; j < COLUNA; j++){
+			//a cada posição o valor do elemento à "soma" mais "1"
+			habilidadeCone[i][j] = 0;
+			if(j == 2){
+				habilidadeCone[i][j] = 3;
+			}
+			
+			if(i == 1){
+				habilidadeCone[i][1] = 3;
+				habilidadeCone[i][2] = 3;
+				habilidadeCone[i][3] = 3;
+			}
+			
+			if(i == 2){
+				
+				habilidadeCone[i][0] = 3;
+				habilidadeCone[i][1] = 3;
+				habilidadeCone[i][2] = 3;
+				habilidadeCone[i][3] = 3;
+				habilidadeCone[i][4] = 3;
+			}
+			//mostra cada valor de acordo com a posição
+			printf("%d ", habilidadeCone[i][j]);
+		}
+		//salta uma linha após terminar a primeira linha e ir para a segunda
+		printf("\n");	
+	}
 	
 	//variável de controle para única exibição de "Sobreposição detectada em: " inicialmente como "0" falso
 	int sobreposicaoDetectada = 0;
