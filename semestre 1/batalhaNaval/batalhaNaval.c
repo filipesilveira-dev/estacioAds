@@ -32,12 +32,48 @@
 			for (int j =0; j<COLUNA; j++){
 			//atribui a cada posição da matrizSoma a soma do valor de cada elemento das outras duas matrizes na posição equivalente			
 			tabuleiro[0 + i][5 + j] += habilidadeCruz [i][j];
+			//if(i > 8) || (j > 7){
+			//	habilidadeCruz[i][j]
+			//}
 			//mostra em tela a matrizSoma e seus valores
 			//printf(“matrizSoma[%d][%d] = %d\n”, i, j, matrizSoma[i][j];
 			}
 		}
 		return 1;
 	}
+	
+	int ataqueCone(){
+		for (int i =0; i<LINHA; i++){
+		//loop interno controlando as colunas
+			for (int j =0; j<COLUNA; j++){
+				//atribui a cada posição da matrizSoma a soma do valor de cada elemento das outras duas matrizes na posição equivalente			
+				tabuleiro[7 + i][3 + j] += habilidadeCone [i][j];
+			//if(i > 8) || (j > 7){
+			//	habilidadeCruz[i][j]
+			//}
+			//mostra em tela a matrizSoma e seus valores
+			//printf(“matrizSoma[%d][%d] = %d\n”, i, j, matrizSoma[i][j];
+			}
+		}
+		return 1;
+	}
+	
+	int ataqueOctaedro(){
+		for (int i =0; i<LINHA; i++){
+		//loop interno controlando as colunas
+			for (int j =0; j<COLUNA; j++){
+				//atribui a cada posição da matrizSoma a soma do valor de cada elemento das outras duas matrizes na posição equivalente			
+				tabuleiro[3 + i][0 + j] += habilidadeOctaedro [i][j];
+			//if(i > 8) || (j > 7){
+			//	habilidadeCruz[i][j]
+			//}
+			//mostra em tela a matrizSoma e seus valores
+			//printf(“matrizSoma[%d][%d] = %d\n”, i, j, matrizSoma[i][j];
+			}
+		}
+		return 1;
+	}
+	
 	//função criada para verificar se há sobreposição de navios partindo da premissa de que haverá sobreposição em casos que o valor de determinada
 	//posição seja maior que 3, sugerindo que o valor "3" de um elemento de navio está sendo colocado na mesmo posição de um outro elemento de valor
 	//"3" de outro navio
@@ -202,26 +238,28 @@ int main (){
 		//loop interno controla as colunas
 		for(int j = 0; j < COLUNA; j++){
 			//a cada posição o valor do elemento à "soma" mais "1"
-			habilidadeCone[i][j] = 0;
+			habilidadeOctaedro[i][j] = 0;
 			if(j == 2){
-				habilidadeCone[i][j] = 1;
+				habilidadeOctaedro[i][j] = 1;
 			}
 			
 			if(i == 1){
-				habilidadeCone[i][1] = 1;
-				habilidadeCone[i][2] = 1;
-				habilidadeCone[i][3] = 1;
+				habilidadeOctaedro[i][1] = 1;
+				habilidadeOctaedro[i][2] = 1;
+				habilidadeOctaedro[i][3] = 1;
 			}
 			
 
 			//mostra cada valor de acordo com a posição
-			printf("%d ", habilidadeCone[i][j]);
+			printf("%d ", habilidadeOctaedro[i][j]);
 		}
 		//salta uma linha após terminar a primeira linha e ir para a segunda
 		printf("\n");	
 	}
 
 	ataqueCruz();
+	ataqueCone();
+	ataqueOctaedro();
 	imprimirTabuleiro();
 	//chama a função que verificará se há sobreposição e onde
 	sobreposicaoNavio();
