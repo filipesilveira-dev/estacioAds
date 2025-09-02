@@ -179,7 +179,7 @@ int main (){
 	
 	//cria uma matriz 5x5, onde o primeiro elemento é "1" e, à medida em que o laço continua, aumenta uma unidade
 	
-	printf("\nHabilidade cruz\n");
+	//printf("\nHabilidade cruz\n");
 	//loop externo controla as linhas
 	for(int i = 0; i < LINHA; i++){
 		//loop interno controla as colunas
@@ -193,13 +193,13 @@ int main (){
 			habilidadeCruz[i][j] = 5;
 			}
 			//mostra cada valor de acordo com a posição
-			printf("%d ", habilidadeCruz[i][j]);
+			//printf("%d ", habilidadeCruz[i][j]);
 		}
 		//salta uma linha após terminar a primeira linha e ir para a segunda
-		printf("\n");	
+		//printf("\n");	
 	}
 	
-	printf("\nHabilidade cone\n");
+	//printf("\nHabilidade cone\n");
 	for(int i = 0; i < LINHA; i++){
 		//loop interno controla as colunas
 		for(int j = 0; j < COLUNA; j++){
@@ -224,13 +224,13 @@ int main (){
 				habilidadeCone[i][4] = 4;
 			}
 			//mostra cada valor de acordo com a posição
-			printf("%d ", habilidadeCone[i][j]);
+			//printf("%d ", habilidadeCone[i][j]);
 		}
 		//salta uma linha após terminar a primeira linha e ir para a segunda
-		printf("\n");	
+		//printf("\n");	
 	}
 	
-	printf("\nHabilidade octaedro\n");
+	//printf("\nHabilidade octaedro\n");
 	for(int i = 0; i < LINHA; i++){
 		//loop interno controla as colunas
 		for(int j = 0; j < COLUNA; j++){
@@ -248,10 +248,10 @@ int main (){
 			
 
 			//mostra cada valor de acordo com a posição
-			printf("%d ", habilidadeOctaedro[i][j]);
+			//printf("%d ", habilidadeOctaedro[i][j]);
 		}
 		//salta uma linha após terminar a primeira linha e ir para a segunda
-		printf("\n");	
+		//printf("\n");	
 	}
 	//organização em funções na int main (deixa o código mais limpo e legível)
 	ataqueCruz();
